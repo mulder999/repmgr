@@ -4963,6 +4963,7 @@ _is_server_available(const char *conninfo, bool quiet)
 
 	if (quiet == false)
 	{
+		log_warning(_("unable to ping"));
 		log_detail(_("PQping() returned \"%s\""), print_pqping_status(status));
 	}
 
@@ -4985,6 +4986,7 @@ is_server_available_params(t_conninfo_param_list *param_list)
 
 		if (status != PQPING_OK)
 		{
+			log_warning(_("unable to ping"));
 			log_detail(_("PQping() returned \"%s\""), print_pqping_status(status));
 		}
 
